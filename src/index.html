@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,7 +14,17 @@
     />
   </head>
   <body class="container">
-    <h1 class="text-primary-emphasis">Example title</h1>
+    <h1 class="text-primary-emphasis">Блог</h1>
+
+    <form id="createPostForm">
+      <input type="text" id="titleInput" placeholder="Заголовок" required />
+
+      <textarea id="contentInput" placeholder="Зміст" required></textarea>
+
+      <button type="submit">Створити пост</button>
+    </form>
+
+    <div id="postsContainer"></div>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <!-- <include src="./partials/example.html"></include> -->
   </body>

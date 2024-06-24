@@ -11,9 +11,11 @@
   "license": "ISC",
   "bugs": {},
   "dependencies": {
+    "handlebars": "^4.7.8",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
+    "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
     "@parcel/transformer-sass": "^2.6.0",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",

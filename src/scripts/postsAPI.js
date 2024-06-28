@@ -5,14 +5,6 @@ class PostsAPI {
     try {
       const res = await fetch(`${URL_POSTS}`);
 
-      if (!res.ok) {
-        return console.log('some error');
-      }
-
-      if (res.status === '401') {
-        return console.error('не авторизований');
-      }
-
       const parsedData = await res.json();
       return parsedData;
     } catch (e) {
@@ -34,6 +26,23 @@ class PostsAPI {
     try {
       const answer = await fetch(`${URL_POSTS}`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(post),
+      });
+
+      const parsedData = await answer.json();
+      return parsedData;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async updatePost(post) {
+    try {
+      const answer = await fetch(`${URL_POSTS}`, {
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },

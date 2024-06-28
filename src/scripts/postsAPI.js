@@ -1,7 +1,7 @@
 const URL_POSTS = 'http://localhost:3000/posts';
 
 class PostsAPI {
-  async getAllStudents() {
+  async getAllPosts() {
     try {
       const res = await fetch(`${URL_POSTS}`);
 
@@ -30,14 +30,14 @@ class PostsAPI {
     }
   }
 
-  async addStudent(student) {
+  async addPost(post) {
     try {
       const answer = await fetch(`${URL_POSTS}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(student),
+        body: JSON.stringify(post),
       });
 
       const parsedData = await answer.json();
@@ -47,7 +47,7 @@ class PostsAPI {
     }
   }
 
-  async deleteStudent(id) {
+  async deletePost(id) {
     try {
       const res = await fetch(`${URL_POSTS}/${id}`, {
         method: 'DELETE',

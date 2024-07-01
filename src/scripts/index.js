@@ -1,39 +1,30 @@
 import postTemplate from '../templates/posts.hbs';
+import postsAPI from './postsAPI.js';
+
 const containerPost = document.querySelector('#postsContainer');
-function renderPost() {
+function renderPost(posts) {
   const html = postTemplate({
-    post: [
-      {
-        title: 'test',
-        content: 'content',
-        comments: [
-          {
-            id: 1,
-            text: 'comment 1',
-          },
-          {
-            id: 2,
-            text: 'comment 2',
-          },
-        ],
-      },
-      {
-        title: 'test2',
-        content: 'content2',
-        comments: [
-          {
-            id: 1,
-            text: 'comment 1',
-          },
-          {
-            id: 2,
-            text: 'comment 2',
-          },
-        ],
-      },
-    ],
+    post: posts,
   });
   containerPost.innerHTML = html;
 }
+
+async function getPosts() {
+  try {
+    const posts = await postsAPI.getAllPosts();
+    renderPost(posts);
+  } catch (e) {
+    containerPost.innerHTML = 'Помилка';
+    console.error('getAllPosts', e);
+  }
+}
+
+async function startApp() {
+  const posts = await getPosts();
+
+  renderPosts(posts);
+}
+
+startApp();
 
 renderPost();

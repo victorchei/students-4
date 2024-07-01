@@ -27,6 +27,20 @@
           "text": "comment 2"
         }
       ]
+    },
+    {
+      "title": "test3",
+      "content": "content3",
+      "comments": [
+        {
+          "id": 1,
+          "text": "comment 1"
+        },
+        {
+          "id": 2,
+          "text": "comment 2"
+        }
+      ]
     }
   ]
 }

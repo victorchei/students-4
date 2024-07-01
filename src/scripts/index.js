@@ -2,7 +2,8 @@ import postTemplate from '../templates/posts.hbs';
 import postsAPI from './postsAPI.js';
 
 const containerPost = document.querySelector('#postsContainer');
-function renderPost(posts) {
+
+function renderPosts(posts) {
   const html = postTemplate({
     post: posts,
   });
@@ -12,19 +13,36 @@ function renderPost(posts) {
 async function getPosts() {
   try {
     const posts = await postsAPI.getAllPosts();
-    renderPost(posts);
+    return posts;
   } catch (e) {
     containerPost.innerHTML = 'Помилка';
     console.error('getAllPosts', e);
   }
 }
 
+function submitHandler(event) {
+  console.log(event);
+  event.preventDefault;
+  if (event.target.id === 'createPostForm') {
+    createNewPost(event.target);
+  }
+}
+
+function createNewPost(form) {
+  //отримати данні
+  const title = form.title.value;
+  const content = form.content.value;
+
+  //передати данні в API
+  postsAPI.addPost({ title, content });
+}
+
 async function startApp() {
   const posts = await getPosts();
 
-  renderPosts(posts);
+  await renderPosts(posts);
 }
 
 startApp();
 
-renderPost();
+document.addEventListener('submit', submitHandler);

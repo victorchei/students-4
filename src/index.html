@@ -18,9 +18,20 @@
 
     <form id="createPostForm">
       <h3 class="text-primary">Створити новий пост</h3>
-      <input type="text" id="titleInput" placeholder="Заголовок" required />
+      <input
+        type="text"
+        name="title"
+        id="titleInput"
+        placeholder="Заголовок"
+        required
+      />
 
-      <textarea id="contentInput" placeholder="Зміст" required></textarea>
+      <textarea
+        id="contentInput"
+        name="content"
+        placeholder="Зміст"
+        required
+      ></textarea>
 
       <button type="submit" class="btn btn-primary">Створити пост</button>
     </form>

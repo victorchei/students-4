@@ -2,32 +2,38 @@
 
   <div class='post card mb-3 mt-3'>
 
-    <p class="card-header h5">{{title}}</p>
+    <p class='card-header h5'>{{title}}</p>
 
-    <p class="card-body mb-2 text-body-secondary ">{{content}}</p>
+    <p class='card-body mb-2 text-body-secondary'>{{content}}</p>
 
-    <div class="ms-2">
+    <div class='ms-2'>
       <button
-      class='editPostButton btn btn-primary'
-      data-id=''
-    >Редагувати</button>
+        class='editPostButton btn btn-primary'
+        data-id=''
+      >Редагувати</button>
 
-    <button class='deletePostButton btn btn-danger' data-id=''>Видалити</button></div>
+      <button
+        class='deletePostButton btn btn-danger'
+        data-id='{{id}}'
+      >Видалити</button></div>
 
     <div class='commentsContainer ms-2 mb-2' data-id=''>
 
-      <h3 class="fs-5 mt-3">Коментарі:</h3>
+      <h3 class='fs-5 mt-3'>Коментарі:</h3>
 
-      <ul class="ms-0">
+      <ul class='ms-0'>
 
         {{#each comments}}
-          <li class="fs-6">{{text}}</li>
+          <li class='fs-6'>{{text}}</li>
         {{/each}}
 
       </ul>
 
       <form class='createCommentForm'>
-        <div class="group-input w-50" style="display: flex; flex-direction: row;">
+        <div
+          class='group-input w-50'
+          style='display: flex; flex-direction: row;'
+        >
 
           <input
             type='text'
@@ -36,12 +42,16 @@
             required
           />
 
-          <button class="btn btn-success rounded-end" style="width: 250px;" type='submit'>Додати коментар</button>
+          <button
+            class='btn btn-success rounded-end'
+            style='width: 250px;'
+            type='submit'
+          >Додати коментар</button>
 
         </div>
 
       </form>
-      
+
     </div>
 
   </div>

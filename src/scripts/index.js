@@ -28,13 +28,35 @@ function submitHandler(event) {
   }
 }
 
-function createNewPost(form) {
+function clickHandler(event) {
+  console.log(event);
+  if (event.target.closest('.deletePostButton')) {
+    const id = event.target.dataset.id;
+    console.log(id);
+
+    deletePostId(id);
+  }
+}
+
+async function updatePostLists() {
+  const posts = await getPosts();
+  renderPosts(posts);
+}
+
+async function deletePostId(id) {
+  await postsAPI.deletePost(id);
+
+  await updatePostLists();
+}
+
+async function createNewPost(form) {
   //отримати данні
   const title = form.title.value;
   const content = form.content.value;
 
   //передати данні в API
   postsAPI.addPost({ title, content });
+  await updatePostLists();
 }
 
 async function startApp() {
@@ -46,3 +68,5 @@ async function startApp() {
 startApp();
 
 document.addEventListener('submit', submitHandler);
+
+document.addEventListener('click', clickHandler);

@@ -19,7 +19,7 @@ async function handleSearch(e) {
 
 async function handelSelect(e) {
   const { value } = e.target;
-  await updateCardList({ country: value });
+  await updateCardList({ countryCode: value });
 }
 
 async function clickHandler(e) {

@@ -4,21 +4,13 @@ main {
   background-size: cover;
   background-position: center;
 
-  .container {
-    width: 946px;
-    max-width: 90%;
+  .main-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 auto;
 
     @media (max-width: 768px) {
-      width: 595px;
       justify-content: center;
-    }
-
-    @media (max-width: 320px) {
-      width: 280px;
     }
   }
 }

@@ -29,7 +29,7 @@ export async function updateCardList(filters = {}) {
     eventsService.setSearchKeyword(filters.keywords);
   }
   if ('countryCode' in filters) {
-    eventsService.setCountryCode(filters.country);
+    eventsService.setCountryCode(filters.countryCode);
   }
   if ('page' in filters) {
     eventsService.setPage(filters.page);

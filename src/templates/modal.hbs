@@ -1,58 +1,42 @@
-{{!-- {{#each post}}
-
-  <div class='post card mb-3 mt-3'>
-
-    <p class='card-header h5'>{{title}}</p>
-
-    <p class='card-body mb-2 text-body-secondary'>{{content}}</p>
-
-    <div class='ms-2'>
-      <button
-        class='editPostButton btn btn-primary'
-        data-id=''
-      >Редагувати</button>
-
-      <button
-        class='deletePostButton btn btn-danger'
-        data-id='{{id}}'
-      >Видалити</button></div>
-
-    <div class='commentsContainer ms-2 mb-2' data-id=''>
-
-      <h3 class='fs-5 mt-3'>Коментарі:</h3>
-
-      <ul class='ms-0'>
-
-        {{#each comments}}
-          <li class='fs-6'>{{text}}</li>
-        {{/each}}
-
-      </ul>
-
-      <form class='createCommentForm'>
-        <div
-          class='group-input w-50'
-          style='display: flex; flex-direction: row;'
-        >
-
-          <input
-            type='text'
-            class='commentInput form-control rounded-start'
-            placeholder='Новий коментар'
-            required
-          />
-
-          <button
-            class='btn btn-success rounded-end'
-            style='width: 250px;'
-            type='submit'
-          >Додати коментар</button>
-
+{{#with modal}}
+  <div class='modal'>
+    <div class='container modal-container'>
+      <div class='close modal-close'></div>
+      <div class='top-img'>
+        <img src='{{topImg}}' alt='top image' />
+      </div>
+      <div class='info'>
+        <div class='banner'>
+          <img src='{{banner}}' alt='event' />
         </div>
-
-      </form>
-
+        <div class='description'>
+          <div class='block'>
+            <div class='title'>INFO</div>
+            <div class='text'>{{info}}</div>
+          </div>
+          <div class='block'>
+            <div class='title'>WHEN</div>
+            <div class='text'>{{date}}</div>
+            <div class='text'>{{time}}</div>
+          </div>
+          <div class='block'>
+            <div class='title'>WHERE</div>
+            <div class='text'>{{where}}</div>
+          </div>
+          <div class='block'>
+            <div class='title'>WHO</div>
+            <div class='text'>{{who}}</div>
+          </div>
+          <div class='block prices'>
+            <div class='title'>PRICES</div>
+            <div class='text'>STANDART {{price1}}</div>
+            <button>Buy tickets</button>
+            <div class='text'>VIP {{price2}}</div>
+            <button>Buy tickets</button>
+          </div>
+        </div>
+      </div>
     </div>
-
+    <div class="backdrop modal-close"></div>
   </div>
-{{/each}} --}}
+{{/with}}

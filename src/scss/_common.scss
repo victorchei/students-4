@@ -13,3 +13,17 @@ body {
   font-family: Montserrat, sans-serif;
   color: var(--text-light);
 }
+
+.container {
+  width: 946px;
+  max-width: 90%;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 595px;
+  }
+
+  @media (max-width: 320px) {
+    width: 280px;
+  }
+}

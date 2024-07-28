@@ -35,6 +35,15 @@ class EventsService {
       });
   }
 
+  getEventById(id) {
+    const url = new URL(`${ROOT_URL}/events/${id}`);
+    url.searchParams.append('apikey', API_KEY);
+
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => data);
+  }
+
   setSearchKeyword(keyword) {
     this.keyword = keyword;
     this.page = 0;

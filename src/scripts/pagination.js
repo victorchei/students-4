@@ -1,7 +1,7 @@
-import { updateCardList } from './card-list';
+import { renderCardList } from './cardList';
 import { eventsService } from './eventsService';
 
-export async function renderPagination() {
+export function renderPagination() {
   const { totalPages } = eventsService.getPageData();
   $(document).ready(function () {
     const data = Array.from({ length: totalPages }, (_, i) => i);
@@ -10,7 +10,9 @@ export async function renderPagination() {
       autoHidePrevious: true,
       autoHideNext: true,
       callback: async function (_, { pageNumber }) {
-        await updateCardList({ page: pageNumber - 1 });
+        const page = pageNumber - 1;
+        eventsService.setPage(page);
+        await renderCardList();
         // scroll to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },

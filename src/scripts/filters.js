@@ -1,4 +1,5 @@
-import { updateCardList } from './card-list';
+import { eventsService } from './eventsService';
+import { updateContent } from './updateContent';
 
 const search = document.getElementById('search');
 const countrySelect = document.getElementById('countrySelect');
@@ -14,23 +15,19 @@ function debounce(callback, wait) {
 
 async function handleSearch(e) {
   const { value } = e.target;
-  await updateCardList({ keywords: value });
+  eventsService.setSearchKeyword(value);
+  await updateContent();
 }
 
 async function handelSelect(e) {
   const { value } = e.target;
-  await updateCardList({ countryCode: value });
+  eventsService.setCountryCode(value);
+  await updateContent();
 }
 
-async function clickHandler(e) {
-  const value = e.target.closest('button')?.textContent;
-  if (value) {
-    await updateCardList({ page: +value });
-  }
-}
-
-export function initFilters() {
-  countrySelect.addEventListener('click', clickHandler);
+export async function initFilters() {
   search.addEventListener('input', debounce(handleSearch, 500));
   countrySelect.addEventListener('change', handelSelect);
+
+  await updateContent();
 }

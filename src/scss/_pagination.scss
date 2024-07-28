@@ -1,0 +1,36 @@
+#pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+  }
+
+  li {
+    padding: 5px;
+    min-width: 30px;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  li.active {
+    border-color: var(--text-main);
+  }
+
+  @media (max-width: 768px) {
+  }
+
+  @media (max-width: 320px) {
+  }
+}
